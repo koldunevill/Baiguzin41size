@@ -24,9 +24,7 @@ namespace Baiguzin41size
         public System.DateTime OrderData { get; set; }
         public System.DateTime OrderDeliveryDate { get; set; }
         public int OrderPickupPointID { get; set; }
-        public string OrderUserSurname { get; set; }
-        public string OrderUserName { get; set; }
-        public string OrderUserPatronymic { get; set; }
+        public Nullable<int> OrderUserID { get; set; }
         public int OrderCode { get; set; }
         public string OrderStatus { get; set; }
     

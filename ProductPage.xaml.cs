@@ -23,7 +23,9 @@ namespace Baiguzin41size
         public ProductPage()
         {
             InitializeComponent();
-        }
+            ProductListView.ItemsSource = Baiguzin_41Entities1.GetContext().Product.ToList();        
+                
+         }
 
         private void Go_Click(object sender, RoutedEventArgs e)
         {

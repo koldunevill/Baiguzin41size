@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -14,6 +15,8 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,8 +38,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Data.Services" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Data.Services.Design" />
+    <Reference Include="System.Data.SqlXml" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -57,31 +75,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Baiguzin41_Model.cs">
+    <Compile Include="Baiguzin.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Baiguzin41_Model.tt</DependentUpon>
+      <DependentUpon>Baiguzin.tt</DependentUpon>
     </Compile>
     <Compile Include="Order.cs">
-      <DependentUpon>Baiguzin41_Model.tt</DependentUpon>
+      <DependentUpon>Baiguzin.tt</DependentUpon>
     </Compile>
     <Compile Include="OrderProduct.cs">
-      <DependentUpon>Baiguzin41_Model.tt</DependentUpon>
+      <DependentUpon>Baiguzin.tt</DependentUpon>
     </Compile>
     <Compile Include="PIckUpPoint.cs">
-      <DependentUpon>Baiguzin41_Model.tt</DependentUpon>
+      <DependentUpon>Baiguzin.tt</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>Baiguzin41_Model.tt</DependentUpon>
+      <DependentUpon>Baiguzin.tt</DependentUpon>
     </Compile>
     <Compile Include="Role.cs">
-      <DependentUpon>Baiguzin41_Model.tt</DependentUpon>
+      <DependentUpon>Baiguzin.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
-      <DependentUpon>Baiguzin41_Model.tt</DependentUpon>
+      <DependentUpon>Baiguzin.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>Baiguzin41_Model.tt</DependentUpon>
+      <DependentUpon>Baiguzin.tt</DependentUpon>
     </Compile>
     <Page Include="AddEditPAge.xaml">
       <SubType>Designer</SubType>
@@ -98,15 +116,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Baiguzin41_Model.Context.cs">
+    <Compile Include="Baiguzin.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Baiguzin41_Model.Context.tt</DependentUpon>
+      <DependentUpon>Baiguzin.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Baiguzin41_Model.Designer.cs">
+    <Compile Include="Baiguzin.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Baiguzin41_Model.edmx</DependentUpon>
+      <DependentUpon>Baiguzin.edmx</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -139,12 +157,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Baiguzin41_Model.edmx">
+    <EntityDeploy Include="Baiguzin.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Baiguzin41_Model.Designer.cs</LastGenOutput>
+      <LastGenOutput>Baiguzin.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Baiguzin41_Model.edmx.diagram">
-      <DependentUpon>Baiguzin41_Model.edmx</DependentUpon>
+    <None Include="Baiguzin.edmx.diagram">
+      <DependentUpon>Baiguzin.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -165,16 +183,35 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Baiguzin41_Model.Context.tt">
+    <Resource Include="picture.png" />
+    <Resource Include="B320R5.jpg" />
+    <Content Include="Baiguzin.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Baiguzin41_Model.edmx</DependentUpon>
-      <LastGenOutput>Baiguzin41_Model.Context.cs</LastGenOutput>
+      <DependentUpon>Baiguzin.edmx</DependentUpon>
+      <LastGenOutput>Baiguzin.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Baiguzin41_Model.tt">
+    <Content Include="Baiguzin.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Baiguzin41_Model.edmx</DependentUpon>
-      <LastGenOutput>Baiguzin41_Model.cs</LastGenOutput>
+      <DependentUpon>Baiguzin.edmx</DependentUpon>
+      <LastGenOutput>Baiguzin.cs</LastGenOutput>
     </Content>
+    <Resource Include="D329H3.jpg" />
+    <Resource Include="D572U8.jpg" />
+    <Resource Include="F572H7.jpg" />
+    <Resource Include="F635R4.jpg" />
+    <Resource Include="G432E4.jpg" />
+    <Resource Include="G783F5.jpg" />
+    <Resource Include="H782T5.jpg" />
+    <Resource Include="J384T6.jpg" />
+    <Resource Include="А112Т4.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

@@ -13,9 +13,7 @@
           <Property Name="OrderData" Type="date" Nullable="false" />
           <Property Name="OrderDeliveryDate" Type="date" Nullable="false" />
           <Property Name="OrderPickupPointID" Type="int" Nullable="false" />
-          <Property Name="OrderUserSurname" Type="nvarchar(max)" />
-          <Property Name="OrderUserName" Type="nvarchar(max)" />
-          <Property Name="OrderUserPatronymic" Type="nvarchar(max)" />
+          <Property Name="OrderUserID" Type="int" />
           <Property Name="OrderCode" Type="int" Nullable="false" />
           <Property Name="OrderStatus" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
@@ -171,9 +169,7 @@
           <Property Name="OrderData" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="OrderDeliveryDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="OrderPickupPointID" Type="Int32" Nullable="false" />
-          <Property Name="OrderUserSurname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="OrderUserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="OrderUserPatronymic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OrderUserID" Type="Int32" />
           <Property Name="OrderCode" Type="Int32" Nullable="false" />
           <Property Name="OrderStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="OrderProduct" Relationship="Self.FK__OrderProd__Order__2D27B809" FromRole="Order" ToRole="OrderProduct" />
@@ -299,7 +295,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Baiguzin_41Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Baiguzin_41Entities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Order" EntityType="Self.Order" />
           <EntitySet Name="OrderProduct" EntityType="Self.OrderProduct" />
           <EntitySet Name="PIckUpPoint" EntityType="Self.PIckUpPoint" />
@@ -329,7 +325,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище Baiguzin_41ModelContainer" CdmEntityContainer="Baiguzin_41Entities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Baiguzin_41ModelContainer" CdmEntityContainer="Baiguzin_41Entities1">
           <EntitySetMapping Name="Order">
             <EntityTypeMapping TypeName="Baiguzin_41Model.Order">
               <MappingFragment StoreEntitySet="Order">
@@ -337,9 +333,7 @@
                 <ScalarProperty Name="OrderData" ColumnName="OrderData" />
                 <ScalarProperty Name="OrderDeliveryDate" ColumnName="OrderDeliveryDate" />
                 <ScalarProperty Name="OrderPickupPointID" ColumnName="OrderPickupPointID" />
-                <ScalarProperty Name="OrderUserSurname" ColumnName="OrderUserSurname" />
-                <ScalarProperty Name="OrderUserName" ColumnName="OrderUserName" />
-                <ScalarProperty Name="OrderUserPatronymic" ColumnName="OrderUserPatronymic" />
+                <ScalarProperty Name="OrderUserID" ColumnName="OrderUserID" />
                 <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
                 <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
               </MappingFragment>

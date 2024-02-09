@@ -13,10 +13,20 @@ namespace Baiguzin41size
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Baiguzin_41Entities : DbContext
+    public partial class Baiguzin_41Entities1 : DbContext
     {
-        public Baiguzin_41Entities()
-            : base("name=Baiguzin_41Entities")
+        private static Baiguzin_41Entities1 _context;
+
+        public static Baiguzin_41Entities1 GetContext()
+        {
+            if (_context == null)
+                _context = new Baiguzin_41Entities1();
+
+            return _context;
+        }
+
+        public Baiguzin_41Entities1()
+            : base("name=Baiguzin_41Entities1")
         {
         }
     
