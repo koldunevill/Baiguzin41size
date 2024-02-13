@@ -5,11 +5,43 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Baiguzin41size"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="1200"
       Title="ProductPage" FontFamily="Comic Sans MS">
 
     <Grid>
-        <ListView Name="ProductListView" Grid.RowSpan="3" Grid.ColumnSpan="3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <StackPanel Margin="10 0 0 0" Orientation="Vertical"  VerticalAlignment="Bottom">
+                <TextBlock Text="Введите для поиска" FontSize="20"></TextBlock>
+                <TextBox  Name="TBoxSearch" TextChanged="TBoxSearch_TextChanged" Width="400" Height="35" FontSize="20"></TextBox>
+            </StackPanel>
+            <StackPanel Margin="10 0 0 0" VerticalAlignment="Bottom">
+                <TextBlock Text="Выберетите для сортироваки" FontSize="20"/>
+                <ComboBox Name="ComboType2" SelectionChanged="ComboType2_SelectionChanged" FontSize="20" Width="300">
+                    <TextBlock>0-100%</TextBlock>
+                    <TextBlock>0-9,99%</TextBlock>
+                    <TextBlock>10-14,99%</TextBlock>
+                    <TextBlock>15% и более</TextBlock>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Margin="10 0 0 0" VerticalAlignment="Bottom">
+                <RadioButton Content="По возрастанию стоимости" GroupName="Sort" Width="306" FontSize="20"
+                             Name="RBtnUP" Checked="RBtnUP_Checked" HorizontalAlignment="Left"/>
+                <RadioButton Content="По убыванию стоимости" GroupName="Sort" Width="301" FontSize="20" Name="RbtnDown" Checked="RbtnDown_Checked" HorizontalAlignment="Left"/>
+            </StackPanel>
+        </WrapPanel>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Left" Margin="10 0 0 0">
+            <TextBlock Name="CountTB" FontSize="15" FontWeight="Bold"></TextBlock>
+        </StackPanel>
+
+
+        <ListView Grid.Row="2" Name="ProductListView" Grid.RowSpan="3" Grid.ColumnSpan="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -21,8 +53,9 @@
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="100"></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="600"></ColumnDefinition>
+                            <ColumnDefinition Width="300"></ColumnDefinition>
+                            <ColumnDefinition Width="70"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Image Width="100" Height="100" Grid.Column="0" Stretch="Uniform" HorizontalAlignment="Center">
                             <Image.Source>
@@ -38,11 +71,14 @@
                         <StackPanel Margin="10 0 0 0" Grid.Column="1" Orientation="Vertical" Grid.RowSpan="5">
                             <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal">
                                 <TextBlock FontSize="20" FontWeight="ExtraBold" Text="{Binding ProductName}"></TextBlock>
-                                <TextBlock FontSize="20" FontWeight="ExtraBold" Text=" | "></TextBlock>
-                                <TextBlock FontSize="20" Text="{Binding ProductSeller}"></TextBlock>
                             </StackPanel>
                             <TextBlock FontSize="15" Grid.Column="2" Grid.Row="1" Text="{Binding ProductDescription, StringFormat=Описание: {0}}"></TextBlock>
+                            <TextBlock FontSize="20" Grid.Column="2" Grid.Row="2" Text="{Binding ProductSeller}"></TextBlock>
                             <TextBlock FontSize="20" Grid.Column="2" Grid.Row="3" Text="{Binding ProductCost}"></TextBlock>
+                        </StackPanel>
+                        <StackPanel  Grid.Column="3">
+                            <TextBlock FontSize="20" Grid.Column="3" Grid.Row="1" Text="Скидка" FontWeight="DemiBold"></TextBlock>
+                            <TextBlock Margin="20 0 0 0" FontSize="20" Grid.Column="3" Grid.Row="1" Text="{Binding ProductDiscountAmount, StringFormat={}{0}%}" VerticalAlignment="Center" FontWeight="Bold"></TextBlock>
                         </StackPanel>
 
                     </Grid>
