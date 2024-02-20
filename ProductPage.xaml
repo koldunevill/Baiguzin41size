@@ -11,6 +11,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="20"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -34,14 +35,30 @@
                              Name="RBtnUP" Checked="RBtnUP_Checked" HorizontalAlignment="Left"/>
                 <RadioButton Content="По убыванию стоимости" GroupName="Sort" Width="301" FontSize="20" Name="RbtnDown" Checked="RbtnDown_Checked" HorizontalAlignment="Left"/>
             </StackPanel>
+    
         </WrapPanel>
+        <Button Grid.Row="0" HorizontalAlignment="Right" Content="Заказы" Name="BTN"></Button>
+        <TextBlock Text="Вы авторизоманы как:" FontSize="20" Grid.Row="1" VerticalAlignment="Top" Margin="10 0 0 0"></TextBlock>        
+        <TextBlock Text="" FontSize="20" Grid.Row="1" VerticalAlignment="Top" Margin="225 0 0 0" Name="FIOTB"></TextBlock>
+        <TextBlock Text="Роль:" FontSize="20" Grid.Row="1" VerticalAlignment="Bottom" Margin="10 0 0 0">></TextBlock>
+        <TextBlock Text="" FontSize="20" Grid.Row="1" VerticalAlignment="Bottom" Margin="70 0 0 0 " Name="RoleTB" ></TextBlock>
 
-        <StackPanel Grid.Row="1" HorizontalAlignment="Left" Margin="10 0 0 0">
+
+        <StackPanel Grid.Row="2" HorizontalAlignment="Left" Margin="10 0 0 0">
             <TextBlock Name="CountTB" FontSize="15" FontWeight="Bold"></TextBlock>
         </StackPanel>
 
+        <ListView Name="ShoeListView" Grid.Row="3" SelectionChanged="ShoeListView_SelectionChanged">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Добавить к заказу" Click="MenuItem_Click"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
+        </ListView>
+        
 
-        <ListView Grid.Row="2" Name="ProductListView" Grid.RowSpan="3" Grid.ColumnSpan="2">
+        <ListView Grid.Row="3" Name="ProductListView" Grid.RowSpan="3" Grid.ColumnSpan="2">
+           
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>

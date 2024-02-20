@@ -22,9 +22,29 @@ namespace Baiguzin41size
     {
         int countfull = 0;
         int count = 0;
-        public ProductPage()
+        public ProductPage(User user)
         {
             InitializeComponent();
+            if (user != null)
+            {
+
+                FIOTB.Text = user.UserSurname + "" + user.UserName + "" + user.UserPatronymic;
+                switch (user.UserRole)
+                {
+                    case 1:
+                        RoleTB.Text = "Клиент"; break;
+                    case 2:
+                        RoleTB.Text = "Менеджер"; break;
+                    case 3:
+                        RoleTB.Text = "Администратор"; break;
+                }
+            }
+            else
+            {
+                FIOTB.Text = "Гость";
+                RoleTB.Text = "";
+            }
+
             ComboType2.SelectedIndex = 0;
             
             var currentProduct = Baiguzin_41Entities1.GetContext().Product.ToList();
@@ -100,5 +120,17 @@ namespace Baiguzin41size
         {
             UpdateProduct();
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void ShoeListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+
     }
 }

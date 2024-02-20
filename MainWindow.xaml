@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Baiguzin41size"
         mc:Ignorable="d"
-        Title="Baiguzin41" MinHeight="600" MinWidth="1200" Height="600" Width="1200" FontFamily="Comic Sans MS"
+        Title="Baiguzin41" MinHeight="600" MinWidth="1300" Height="600" Width="1300" FontFamily="Comic Sans MS"
         Icon="Res/icon.ico">
     <Grid>
         <Grid.RowDefinitions>
@@ -22,6 +22,6 @@
                 REs/logo.png    
             </Image.Source>
         </Image>
-        <Button Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Back" Click="Button_Click" Name="Button"></Button>
+        <Button Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Назад" Click="Button_Click" Name="Button"></Button>
     </Grid>
 </Window>
