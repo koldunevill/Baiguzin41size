@@ -22,9 +22,24 @@ namespace Baiguzin41size
     {
         int countfull = 0;
         int count = 0;
+        User currentUser;
+        int newOrderId;
+        public static bool btnActivity = false;
+        int Quantity = 0;
+
+        List<Product> selectedProducts = new List<Product>();
+        List<OrderProduct> selectedOrderProduct = new List<OrderProduct>();
+       
         public ProductPage(User user)
         {
             InitializeComponent();
+
+            if (selectedProducts.Count == 0)
+            {
+                BTNOrder.Visibility = Visibility.Hidden;
+            }
+            currentUser = user;
+
             if (user != null)
             {
 
@@ -121,16 +136,59 @@ namespace Baiguzin41size
             UpdateProduct();
         }
 
+
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (ProductListView.SelectedIndex >= 0)
+            {
+                var prod = ProductListView.SelectedItem as Product;
+
+                var existingOrderProduct = selectedOrderProduct.FirstOrDefault(p => p.ProductArticleNumber == prod.ProductArticleNumber);
+
+                if (existingOrderProduct != null)
+                {
+                    existingOrderProduct.Quantity++;
+
+                    var selectedProduct = selectedProducts.FirstOrDefault(p => p.ProductArticleNumber == prod.ProductArticleNumber);
+                    if (selectedProduct != null)
+                    {
+                        selectedProduct.Quantityto = existingOrderProduct.Quantity;
+                    }
+                }
+                else
+                {
+                    var newOrderProd = new OrderProduct
+                    {
+                        OrderID = newOrderId,
+                        ProductArticleNumber = prod.ProductArticleNumber,
+                        Quantity = 1
+                    };
+                    selectedOrderProduct.Add(newOrderProd);
+                    prod.Quantityto = 1; 
+                    selectedProducts.Add(prod);
+                }
+
+                BTNOrder.Visibility = Visibility.Visible;
+
+                ProductListView.Items.Refresh();
+
+                ProductListView.SelectedIndex = -1;
+            }
+            UpdateProduct();
         }
 
         private void ShoeListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
 
-
+        private void BTNOrder_Click(object sender, RoutedEventArgs e)
+        {
+            selectedProducts = selectedProducts.Distinct().ToList();
+            
+            OrderWindow orderWindows = new OrderWindow(selectedOrderProduct, selectedProducts, currentUser  );
+            orderWindows.ShowDialog();
+            BTNOrder.Visibility = Visibility.Hidden;
+        }
     }
 }

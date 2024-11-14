@@ -15,7 +15,11 @@
         </Grid.RowDefinitions>
         
         <Frame Grid.Row="1" Name="MainFrame" NavigationUIVisibility="Hidden" ContentRendered="MainFrame_ContentRendered"></Frame>
-        
+
+        <TextBlock Grid.Row="0" Width="2000" Height="80" Background="#FFCC99"></TextBlock>
+        <TextBlock Grid.Row="2" Width="2000" Height="80" Background="#FFCC99"></TextBlock>
+
+
         <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Магазин 41 размер" FontSize="40"></TextBlock>
         <Image Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left">
             <Image.Source>

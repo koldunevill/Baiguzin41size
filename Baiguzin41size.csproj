@@ -78,34 +78,44 @@
     <Compile Include="AuthPage.xaml.cs">
       <DependentUpon>AuthPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Baiguzin.cs">
+    <Compile Include="Baiguzin_41Entities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Baiguzin.tt</DependentUpon>
+      <DependentUpon>Baiguzin_41Entities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baiguzin_41Entities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Baiguzin_41Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baiguzin_41Entities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Baiguzin_41Entities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Order.cs">
-      <DependentUpon>Baiguzin.tt</DependentUpon>
+      <DependentUpon>Baiguzin_41Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="OrderProduct.cs">
-      <DependentUpon>Baiguzin.tt</DependentUpon>
+      <DependentUpon>Baiguzin_41Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="OrderWindow.xaml.cs">
       <DependentUpon>OrderWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PIckUpPoint.cs">
-      <DependentUpon>Baiguzin.tt</DependentUpon>
+      <DependentUpon>Baiguzin_41Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>Baiguzin.tt</DependentUpon>
+      <DependentUpon>Baiguzin_41Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Role.cs">
-      <DependentUpon>Baiguzin.tt</DependentUpon>
+      <DependentUpon>Baiguzin_41Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
-      <DependentUpon>Baiguzin.tt</DependentUpon>
+      <DependentUpon>Baiguzin_41Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>Baiguzin.tt</DependentUpon>
+      <DependentUpon>Baiguzin_41Entities.tt</DependentUpon>
     </Compile>
     <Page Include="AddEditPAge.xaml">
       <SubType>Designer</SubType>
@@ -125,16 +135,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Baiguzin.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Baiguzin.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Baiguzin.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Baiguzin.edmx</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -171,12 +171,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Baiguzin.edmx">
+    <EntityDeploy Include="Baiguzin_41Entities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Baiguzin.Designer.cs</LastGenOutput>
+      <LastGenOutput>Baiguzin_41Entities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Baiguzin.edmx.diagram">
-      <DependentUpon>Baiguzin.edmx</DependentUpon>
+    <None Include="Baiguzin_41Entities.edmx.diagram">
+      <DependentUpon>Baiguzin_41Entities.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -199,25 +199,29 @@
   <ItemGroup>
     <Resource Include="picture.png" />
     <Resource Include="B320R5.jpg" />
-    <Content Include="Baiguzin.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Baiguzin.edmx</DependentUpon>
-      <LastGenOutput>Baiguzin.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Baiguzin.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Baiguzin.edmx</DependentUpon>
-      <LastGenOutput>Baiguzin.cs</LastGenOutput>
-    </Content>
-    <Resource Include="D329H3.jpg" />
-    <Resource Include="D572U8.jpg" />
-    <Resource Include="F572H7.jpg" />
-    <Resource Include="F635R4.jpg" />
-    <Resource Include="G432E4.jpg" />
-    <Resource Include="G783F5.jpg" />
-    <Resource Include="H782T5.jpg" />
-    <Resource Include="J384T6.jpg" />
+    <Resource Include="Res\D329H3.jpg" />
+    <Resource Include="Res\D572U8.jpg" />
+    <Resource Include="Res\F572H7.jpg" />
+    <Resource Include="Res\F635R4.jpg" />
+    <Resource Include="Res\G432E4.jpg" />
+    <Resource Include="Res\G783F5.jpg" />
+    <Resource Include="Res\H782T5.jpg" />
+    <Resource Include="Res\J384T6.jpg" />
     <Resource Include="А112Т4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Baiguzin_41Entities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Baiguzin_41Entities.edmx</DependentUpon>
+      <LastGenOutput>Baiguzin_41Entities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Baiguzin_41Entities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Baiguzin_41Entities.edmx</DependentUpon>
+      <LastGenOutput>Baiguzin_41Entities.cs</LastGenOutput>
+    </Content>
+    <Resource Include="Res\B320R5.jpg" />
+    <Resource Include="Res\А112Т4.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

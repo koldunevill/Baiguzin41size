@@ -29,12 +29,12 @@ namespace Baiguzin41size
             : base("name=Baiguzin_41Entities1")
         {
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<OrderProduct> OrderProduct { get; set; }
         public virtual DbSet<PIckUpPoint> PIckUpPoint { get; set; }

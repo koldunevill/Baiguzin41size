@@ -31,5 +31,6 @@ namespace Baiguzin41size
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderProduct> OrderProduct { get; set; }
         public virtual PIckUpPoint PIckUpPoint { get; set; }
+        public virtual User User { get; set; }
     }
 }

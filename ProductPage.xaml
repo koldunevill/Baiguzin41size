@@ -9,6 +9,7 @@
       Title="ProductPage" FontFamily="Comic Sans MS">
 
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
             <RowDefinition Height="60"/>
@@ -16,6 +17,9 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+
+
+
         <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
             <StackPanel Margin="10 0 0 0" Orientation="Vertical"  VerticalAlignment="Bottom">
                 <TextBlock Text="Введите для поиска" FontSize="20"></TextBlock>
@@ -37,7 +41,7 @@
             </StackPanel>
     
         </WrapPanel>
-        <Button Grid.Row="0" HorizontalAlignment="Right" Content="Заказы" Name="BTN"></Button>
+        <Button Grid.Row="0" HorizontalAlignment="Right" Content="Заказы" Name="BTNOrder" Click="BTNOrder_Click"></Button>
         <TextBlock Text="Вы авторизоманы как:" FontSize="20" Grid.Row="1" VerticalAlignment="Top" Margin="10 0 0 0"></TextBlock>        
         <TextBlock Text="" FontSize="20" Grid.Row="1" VerticalAlignment="Top" Margin="225 0 0 0" Name="FIOTB"></TextBlock>
         <TextBlock Text="Роль:" FontSize="20" Grid.Row="1" VerticalAlignment="Bottom" Margin="10 0 0 0">></TextBlock>
@@ -48,17 +52,13 @@
             <TextBlock Name="CountTB" FontSize="15" FontWeight="Bold"></TextBlock>
         </StackPanel>
 
-        <ListView Name="ShoeListView" Grid.Row="3" SelectionChanged="ShoeListView_SelectionChanged">
+
+        <ListView Grid.Row="3" Name="ProductListView" Grid.RowSpan="3" Grid.ColumnSpan="2">
             <ListView.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Добавить к заказу" Click="MenuItem_Click"/>
                 </ContextMenu>
             </ListView.ContextMenu>
-        </ListView>
-        
-
-        <ListView Grid.Row="3" Name="ProductListView" Grid.RowSpan="3" Grid.ColumnSpan="2">
-           
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
