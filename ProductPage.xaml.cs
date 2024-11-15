@@ -189,6 +189,7 @@ namespace Baiguzin41size
             OrderWindow orderWindows = new OrderWindow(selectedOrderProduct, selectedProducts, currentUser  );
             orderWindows.ShowDialog();
             BTNOrder.Visibility = Visibility.Hidden;
+            selectedOrderProduct.Clear();
         }
     }
 }

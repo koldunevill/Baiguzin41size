@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Baiguzin41size"
         mc:Ignorable="d"
-        Title="OrderWindow" Height="700" Width="1000" FontFamily="Comic Sans MS">
+        Title="OrderWindow" Height="700" Width="1000" FontFamily="Comic Sans MS" Closing="OrderWindow_Closing">
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>

@@ -142,13 +142,6 @@ namespace Baiguzin41size
             currentOrder.OrderDeliveryDate = DateTime.Now.AddDays(SetDeliveryDay(selectedProducts));
             currentOrder.OrderStatus = "Новый";
             currentOrder.OrderCode = currentOrder.OrderCode;
-            for (int i = 0; i < selectedProducts.Count; i++)
-            {
-                if (selectedProducts[i].ProductQuantityInStock >= selectedOrderProducts[i].Amout)
-                    selectedProducts[i].ProductQuantityInStock -= Convert.ToInt32(selectedOrderProducts[i].Amout);
-                else
-                    selectedProducts[i].ProductQuantityInStock = 0;
-            }
             foreach (var p in selectedOrderProducts)
             {
                 Baiguzin_41Entities1.GetContext().OrderProduct.Add(p);
@@ -254,6 +247,34 @@ namespace Baiguzin41size
             {
                 this.Close();
             }
+        }
+        private void OrderWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            bool isSaved = CheckIfOrderSaved();
+
+            if (!isSaved)
+            {
+                foreach (var product in selectedProducts)
+                {
+                    product.ProductQuantityInStock += product.Quantityto;
+                }
+
+                try
+                {
+                    Baiguzin_41Entities1.GetContext().SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка при возврате товаров на склад: " + ex.Message);
+                }
+            }
+
+            OrderWindowClosed?.Invoke();
+        }
+
+        private bool CheckIfOrderSaved()
+        {
+            return false; 
         }
     }
 }
